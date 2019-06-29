@@ -2,6 +2,7 @@
 // it just inserts a column and select the first.
 
 // BUG: rizla 热更新，在代码报错后，就无法重启
+// rizla 作者没有修复这个问题，暂时弃用，改用 gowatch
 
 package main
 
@@ -106,7 +107,7 @@ func main() {
 		ctx.JSON(iris.Map{"data": users, "status": 0})
 	})
 
-	// http://localhost:8080/insert
-	// http://localhost:8080/get
-	app.Run(iris.Addr(":8080"), iris.WithoutServerError(iris.ErrServerClosed))
+	// http://localhost:10086/insert
+	// http://localhost:10086/get
+	app.Run(iris.Addr(":10086"), iris.WithoutServerError(iris.ErrServerClosed))
 }
